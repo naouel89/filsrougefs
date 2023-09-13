@@ -1,0 +1,136 @@
+/* Styles pour la navbar */
+.navbar {
+    background-color: #333; /* Couleur de fond de la navbar */
+    color: #fff; /* Couleur du texte de la navbar */
+}
+
+.navbar-brand {
+    font-size: 24px; /* Taille de la police du texte du logo */
+}
+
+.navbar-toggler-icon {
+    color: #fff; /* Couleur de l'icône du bouton de navigation */
+}
+
+.navbar-nav .nav-link {
+    color: #fff; /* Couleur des liens dans la navbar */
+    font-size: 18px; /* Taille de la police des liens */
+}
+
+/* Styles pour le carousel */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay semi-transparent */
+    color: #fff; /* Couleur du texte dans l'overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.overlay h1 {
+    font-size: 36px; /* Taille de la police du titre */
+    margin-bottom: 20px;
+}
+
+.overlay .logo {
+    width: 200px; /* Largeur du logo */
+    height: 200px; /* Hauteur du logo */
+    animation: rotation 3.5s infinite linear;
+}
+
+/* Animation de rotation pour le logo */
+@keyframes rotation {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+
+
+/* Styles pour le titre h1 */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Styles pour le conteneur principal */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styles pour chaque élément de catégorie */
+.categorie-item {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.categorie-item:hover {
+    transform: scale(1.05);
+}
+
+/* Styles pour les images de catégorie */
+.categorie-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Styles pour les titres de catégorie */
+.categorie-item h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+/* Styles pour les boutons "Voir les plats" */
+.categorie-item .btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categorie-item .btn:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour la section de bannière (ajoutez vos propres styles) */
+.banner {
+    background-image: url('votre-image-de-banniere.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    margin-top: 20px;
+}
+
+/* Vous pouvez ajouter d'autres styles spécifiques au besoin */
