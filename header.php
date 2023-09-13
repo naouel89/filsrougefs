@@ -1,29 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The District: - <?= $titre ?></title>
-
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+<meta charset="UTF-8">
+    <title>DISTRIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
   <?php
+  
+    $host = "localhost"; // Remplacez par le nom d'hôte de votre base de données
+    $username = "root"; // Remplacez par votre nom d'utilisateur
+    $password = "1234"; // Remplacez par votre mot de passe
+    $dbname = "dist"; // Remplacez par le nom de votre base de données
  
- // Vérification si le formulaire a été soumis
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-     // Connexion à la base de données
-     $servername = "localhost"; // Remplacez par le nom de votre serveur MySQL
-     $username = "root"; // Remplacez par votre nom d'utilisateur MySQL
-     $password = "1234"; // Remplacez par votre mot de passe MySQL
-     $dbname = "dist"; // Remplacez par le nom de votre base de données
-
-     $conn = new mysqli($servername, $username, $password, $dbname);
-
-     // Vérification de la connexion
-     if ($conn->connect_error) {
-         die("La connexion à la base de données a échoué : " . $conn->connect_error);
-     }}
-
+ // Établir la connexion à la base de données
+     $db = new PDO('mysql:host=localhost;charset=utf8;dbname=dist', 'root', '1234');
+     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
+ 
+     try {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+        // Gestion des erreurs PDO
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    } catch (PDOException $e) {
+        echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    }
+  
+    ?>

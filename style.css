@@ -1,3 +1,38 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Styles pour la navbar */
 .navbar {
     background-color: #333; /* Couleur de fond de la navbar */
@@ -78,51 +113,74 @@ h1 {
     padding: 20px;
 }
 
-/* Styles pour chaque élément de catégorie */
+/* Style des catégories de plats */
 .categorie-item {
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: #00b3ff;
+    border: 1px solid #060708;
     padding: 20px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    text-align: center;
+    margin-bottom: 0px;
+    transition: transform 0.3s ease-in-out;
+    flex: 0 0 calc(33.333% - 20px); /* Pour trois catégories par ligne */
+    /* flex: 0 0 calc(50% - 20px); */ /* Pour deux catégories par ligne */
+    box-sizing: border-box;
 }
 
 .categorie-item:hover {
     transform: scale(1.05);
 }
 
-/* Styles pour les images de catégorie */
+.categorie-item a {
+    text-decoration: none;
+    color: #333;
+}
+
 .categorie-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
 }
 
-/* Styles pour les titres de catégorie */
 .categorie-item h2 {
-    font-size: 24px;
-    color: #333;
-    margin: 0;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
-/* Styles pour les boutons "Voir les plats" */
-.categorie-item .btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Style pour deux catégories par ligne */
+@media (max-width: 768px) {
+    .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .categorie-item {
+        flex: 0 0 calc(50% - 20px);
+    }
 }
 
-.categorie-item .btn:hover {
-    background-color: #45a049;
+/* Style pour une catégorie par ligne */
+@media (max-width: 480px) {
+    .main-content {
+        display: block;
+    }
+
+    .categorie-item {
+        flex: 0 0 100%;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Styles pour la section de bannière (ajoutez vos propres styles) */
 .banner {
@@ -134,3 +192,112 @@ h1 {
 }
 
 /* Vous pouvez ajouter d'autres styles spécifiques au besoin */
+
+/* bas de page */
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Style de la vidéo en arrière-plan */
+/* Style de la vidéo en arrière-plan */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Ratio d'aspect 16:9 pour la vidéo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Style du pied de page */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+footer .social-media-icons {
+    list-style: none;
+    padding: 0;
+}
+
+footer .social-media-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer .social-media-icons a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* Style des icônes */
+.bi, .fab {
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Style des médias sociaux */
+.social-media-icons a:hover {
+    color: #007bff;
+}
+
+/* Style des coordonnées */
+.col-md-4 {
+    text-align: center;
+}
+
+/* Style des horaires */
+.col-md-4 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.col-md-4 li {
+    margin-bottom: 10px;
+}
