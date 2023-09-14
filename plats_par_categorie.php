@@ -37,6 +37,8 @@ include ('navbar.php');
         } else {
             echo "ID de catégorie non spécifié dans l'URL.";
         }
+
+        
         ?>
     </div>
 
