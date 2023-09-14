@@ -1,11 +1,8 @@
+
 <?php
-// Démarrez la session si elle n'est pas déjà démarrée
 session_start();
-
-// Détruisez la session
-session_destroy();
-
-// Redirigez l'utilisateur vers une page de connexion (par exemple, login.php)
-header("Location: connexion.php");
+session_unset(); // Supprimez toutes les données de session
+session_destroy(); // Détruire la session
+header("Location: connexion.php"); // Rediriger vers la page d'accueil ou une autre page
 exit;
 ?>

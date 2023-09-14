@@ -36,7 +36,7 @@
 /* Styles pour la navbar */
 .navbar {
     background-color: #333; /* Couleur de fond de la navbar */
-    color: #fff; /* Couleur du texte de la navbar */
+    color: #000000; /* Couleur du texte de la navbar */
 }
 
 .navbar-brand {
@@ -44,11 +44,11 @@
 }
 
 .navbar-toggler-icon {
-    color: #fff; /* Couleur de l'icône du bouton de navigation */
+    color: #000000; /* Couleur de l'icône du bouton de navigation */
 }
 
 .navbar-nav .nav-link {
-    color: #fff; /* Couleur des liens dans la navbar */
+    color: #000000; /* Couleur des liens dans la navbar */
     font-size: 18px; /* Taille de la police des liens */
 }
 
@@ -65,7 +65,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay semi-transparent */
-    color: #fff; /* Couleur du texte dans l'overlay */
+    color: #e61414; /* Couleur du texte dans l'overlay */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -284,7 +284,7 @@ footer .social-media-icons a {
 
 /* Style des médias sociaux */
 .social-media-icons a:hover {
-    color: #007bff;
+    color: #ffffff;
 }
 
 /* Style des coordonnées */

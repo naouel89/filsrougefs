@@ -1,22 +1,20 @@
+
 <?php
+include('header.php');
+include('navbar.php');
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
 
-$titre = "Catégories de plats";
-include ('header.php');
-include ('navbar.php');
+
+
+
 
 ?>
-
-
-
-
     <h1>Catégories de plats</h1>
     <div class="main-content">
         <?php
-        // Définir les informations de connexion à la base de données
      
 
        

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Supprimer le Disque</title>
-    <!-- Ajoutez le lien vers le fichier CSS Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+<?php
+    if (isset($_SESSION["auth"]) && $_SESSION["auth"]=="ok") {
+        echo "Bonjour toi";
+    }
+    else {
+        echo "Non connecté";
+    }
+
+?>
 <body>
     <div class="container">
         <div class="row justify-content-center mt-5">

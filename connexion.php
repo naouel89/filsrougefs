@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Requête SQL pour vérifier les informations de connexion
-        $query = "SELECT id FROM infouser WHERE email = :email AND mdp = :mdp";
+        $query = "SELECT mdp FROM infouser WHERE email = :email AND mdp = :mdp";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':mdp', $mdp);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($row) {
             // L'utilisateur est authentifié avec succès
-            $_SESSION['infouser'] = $row['id'];
+            $_SESSION['infouser'] = $row['mdp'];
             header("Location: index.php"); // Redirige vers la page d'accueil
             exit;
         } else {
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" class="form-control" id="mdp" name="mdp" required>
         </div>
         <button type="submit" class="btn btn-primary">Se connecter</button>
-        <button class="btn btn-primary ><a href="deconnexion.php">Déconnexion</a></button>
+        <button class="btn btn-primary" ><a href="deconnexion.php">Déconnexion</a></button>
     </form>
 </div>
 

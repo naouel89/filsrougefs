@@ -30,6 +30,19 @@ include ('navbar.php');
     <section class="banner">
         <!-- Le reste de votre contenu HTML ici -->
     </section>
+    <button class="btn btn-secondary" id="retourButton">Retour</button>
+        </div>
+    </div>
+</div>
+
 <?php
-include ('footer.php') 
+// Include your footer code here
+include('footer.php');
 ?>
+
+<!-- JavaScript to navigate back to the previous page -->
+<script>
+    document.getElementById('retourButton').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>

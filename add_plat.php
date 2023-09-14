@@ -53,3 +53,19 @@ include('navbar.php');
         <!-- Bouton pour retourner au menu sans soumettre le formulaire -->
         <a href="index.php"><input type="button" value="Retour au Menu"></a>
     </form>
+    <button class="btn btn-secondary" id="retourButton">Retour</button>
+        </div>
+    </div>
+</div>
+
+<?php
+// Include your footer code here
+include('footer.php');
+?>
+
+<!-- JavaScript to navigate back to the previous page -->
+<script>
+    document.getElementById('retourButton').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>

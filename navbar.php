@@ -9,9 +9,10 @@ try {
     $result = $pdo->query($sql);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
-}
-?>
 
+}
+
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">The District</a>
@@ -51,6 +52,12 @@ try {
                                 id="cart-price">0</span></a>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+            <button class="btn"><a href="connexion.php">Connexion</a></button>
+
+            <button class="btn"><a href="deconnexion.php">Déconnexion</a></button>
+
+            </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="recherche" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">recherche</button>
@@ -58,5 +65,32 @@ try {
         </div>
     </div>
 </nav>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images_the_district(1)/images_the_district/bg.jpg" class="d-block w-100"
+          alt="images_the_district(1)/images_the_district/bg.jpg" style="width: 900px; height: 450px;">
+      </div>
+      <div class="carousel-item">
+        <img src="images_the_district(1)/images_the_district/bg1.jpeg" class="d-block w-100"
+          alt="images_the_district(1)/images_the_district/bg1.jpeg" style="width: 900px; height: 450px;">
+      </div>
+      <div class="carousel-item">
+        <img src="images_the_district(1)/images_the_district/bg3.jpeg" class="d-block w-100"
+          alt="images_the_district(1)/images_the_district/bg3.jpeg" style="width: 900px; height: 450px;">
+      </div>
+    </div>
 
+    <div class="overlay">
+      <div class="text-container">
+        <h1>The District</h1>
+
+        <img class="logo" src="images_the_district(1)/images_the_district/the_district_brand/logo_transparent.png"
+          alt="logo" title="logo" width="500" height="500">
+      </div>
+    </div>
+
+</div>
+<ul class="navbar-nav">
+                
 <!-- Rest of your HTML content here -->

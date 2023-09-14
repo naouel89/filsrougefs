@@ -31,10 +31,19 @@ include ('navbar.php');
                 echo '<p>Description : ' . $plat['description'] . '</p>';
                 echo '<p>Prix : ' . $plat['prix'] . ' €</p>';
                 echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
+     // Add "Ajouter au panier" button
+     echo '<form action="ajouter_panier.php" method="post">';
+     echo '<input type="hidden" name="plat_id" value="' . $plat['id'] . '">';
+     echo '<input type="submit" name="add_to_cart" value="Ajouter au panier">';
+     echo '</form>';
 
+     // Add "Plus de détails" button
+     echo '<a href="detail_plat.php?id=' . $plat['id'] . '">Plus de détails</a>';
+
+ }
                 echo '</div>';
             }
-        } else {
+         else {
             echo "ID de catégorie non spécifié dans l'URL.";
         }
 
@@ -45,7 +54,19 @@ include ('navbar.php');
     <section class="banner">
         <!-- Le reste de votre contenu HTML ici -->
     </section>
-    <?php 
-    include ('footer.php');
-    ?>
- 
+    <button class="btn btn-secondary" id="retourButton">Retour</button>
+        </div>
+    </div>
+</div>
+
+<?php
+// Include your footer code here
+include('footer.php');
+?>
+
+<!-- JavaScript to navigate back to the previous page -->
+<script>
+    document.getElementById('retourButton').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>
