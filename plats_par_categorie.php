@@ -1,16 +1,27 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
 $titre = "Catégories de plats";
-include ('header.php');
-include ('navbar.php');
+include('header.php');
+include('connexion_script.php');
+include('navbar.php');
 
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION["email"])) {
+    // Récupérer l'email de l'utilisateur connecté
+    $email = $_SESSION["email"];
+
+    // Afficher l'utilisateur connecté
+    echo '<p>Bienvenue, ' . $email . '</p>';
+} else {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: connexion.php");
+    exit();
+}
 ?>
-
 <body>
 <h1>Plats</h1>
     <div class="main-content">
@@ -28,7 +39,6 @@ include ('navbar.php');
             while ($plat = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '<div class="plat-item">';
                 echo '<h2>' . $plat['libelle'] . '</h2>';
-                echo '<p>Description : ' . $plat['description'] . '</p>';
                 echo '<p>Prix : ' . $plat['prix'] . ' €</p>';
                 echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
      // Add "Ajouter au panier" button

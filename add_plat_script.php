@@ -3,7 +3,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
+ 
+$titre = "Restaurant Order";
+include ('header.php');
+include ('navbar.php');
+include('connexion_script.php');
 
+    if (isset($_SESSION["auth"]) && $_SESSION["auth"]=="ok") {
+        echo "Bonjour toi";
+    }
+    else {
+        echo "Non connecté";
+    }
+
+?>
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {

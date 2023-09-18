@@ -1,8 +1,12 @@
 
 <?php
-session_start();
-session_unset(); // Supprimez toutes les données de session
-session_destroy(); // Détruire la session
-header("Location: connexion.php"); // Rediriger vers la page d'accueil ou une autre page
-exit;
+
+// Fonction de déconnexion
+if (isset($_GET["logout"])) {
+    session_unset(); // Supprimez toutes les données de session
+    session_destroy(); // Détruire toutes les données de la session
+  
+    exit();
+}
+header("Location: connexion.php");
 ?>

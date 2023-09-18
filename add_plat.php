@@ -7,6 +7,7 @@ session_start();
 $titre = "add_plats";
 include('header.php');
 include('navbar.php');
+include('connexion_script.php');
 ?>
 
 <title>Ajouter un plat au menu</title>

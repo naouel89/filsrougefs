@@ -3,12 +3,25 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
- 
-$titre = "Restaurant Order";
-include ('header.php');
-include ('navbar.php');
 
-    
+$titre = "Catégories de plats";
+include('header.php');
+include('connexion_script.php');
+include('navbar.php');
+
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION["email"])) {
+    // Récupérer l'email de l'utilisateur connecté
+    $email = $_SESSION["email"];
+
+    // Afficher l'utilisateur connecté
+    echo '<p>Bienvenue, ' . $email . '</p>';
+} else {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: connexion.php");
+    exit();
+}
+
 
 if (isset($_GET['id'])) {
     $plat_id = $_GET['id'];
@@ -33,9 +46,6 @@ if (isset($_GET['id'])) {
 } else {
     echo "ID de plat non spécifié dans l'URL.";
 };
-
-
-// Include your header and navigation code here
 
 ?>
 

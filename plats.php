@@ -7,7 +7,7 @@ session_start();
 $titre = "Restaurant Order";
 include ('header.php');
 include ('navbar.php');
-
+include('connexion_script.php');
 
             // Requête pour obtenir les plats
             $query = "SELECT * FROM plat";
@@ -18,13 +18,14 @@ include ('navbar.php');
             while ($plat = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '<div class="plat-item">';
                 echo '<h2>' . $plat['libelle'] . '</h2>';
-                echo '<p>Description : ' . $plat['description'] . '</p>';
                 echo '<p>Prix : ' . $plat['prix'] . ' €</p>';
                 echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
                 echo '</div>';
             }
       
-        ?>
+        
+         // Afficher l'utilisateur connecté
+ echo '<p>Bienvenue, ' . $email . '</p>';?>
     </div>
 
     <section class="banner">
