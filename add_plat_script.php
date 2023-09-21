@@ -7,16 +7,10 @@ session_start();
 $titre = "Restaurant Order";
 include ('header.php');
 include ('navbar.php');
-include('connexion_script.php');
 
-    if (isset($_SESSION["auth"]) && $_SESSION["auth"]=="ok") {
-        echo "Bonjour toi";
-    }
-    else {
-        echo "Non connecté";
-    }
 
-?>
+
+
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
@@ -24,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db = new PDO('mysql:host=localhost;charset=utf8;dbname=dist', 'root', '1234');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        //
         // Retrieve the form data
         $libelle = $_POST['libelle'];
         $description = $_POST['description'];

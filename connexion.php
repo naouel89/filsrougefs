@@ -40,7 +40,7 @@ include ('header.php');
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="form-group">
             <label for="email">Adresse e-mail</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <input type="email" class="fohrm-control" id="email" name="email" required>
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
@@ -48,7 +48,9 @@ include ('header.php');
         </div>
         <button type="submit" class="btn btn-primary">Se connecter</button>
     </form>
+    <p class="mt-3">Pas de compte ? <a href="inscription.php">Inscrivez vous !</a></p>
 </div>
+
 <?php
 include('footer.php');
 ?>

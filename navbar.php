@@ -62,13 +62,19 @@ try {
                 <a class="nav-link" href="deconnexion.php">Déconnexion</a>
             </li>
         </ul>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Recherche</button>
-        </form>
+         <!-- Barre de recherche dans la barre de navigation -->
+         <form action="recherche_script.php" method="GET">
+        <label for="searchTerm">Terme de recherche :</label>
+        <input type="text" id="searchTerm" name="searchTerm" required>
+        <label for="searchType">Type de recherche :</label>
+        <select id="searchType" name="searchType" required>
+            <option value="plats">Plats</option>
+            <option value="categories">Catégories</option>
+        </select>
+        <button type="submit">Rechercher</button>
+    </form>
     </div>
 </nav>
-
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">

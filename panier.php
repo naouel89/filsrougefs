@@ -27,13 +27,18 @@ if (empty($_SESSION['panier'])) {
     // Afficher le contenu du panier
     echo "<h1>Détail du Panier</h1>";
 
+     
     // Boucle à travers les éléments du panier
     $total = 0;
     foreach ($_SESSION['panier'] as $plat) {
-        echo "<p>Nom du plat : " . $plat['nom'] . "</p>";
+  
+        
+        echo $plat['libelle'];
         echo "<p>Prix du plat : " . $plat['prix'] . " €</p>";
+         
         $total += $plat['prix'];
     }
+    
 
     // Afficher le prix total
     echo "<p><strong>Prix total : " . $total . " €</strong></p>";

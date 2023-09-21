@@ -37,10 +37,11 @@ if (isset($_SESSION["email"])) {
 
             // Afficher les plats de la catégorie
             while ($plat = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
                 echo '<div class="plat-item">';
                 echo '<h2>' . $plat['libelle'] . '</h2>';
                 echo '<p>Prix : ' . $plat['prix'] . ' €</p>';
-                echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
+                
      // Add "Ajouter au panier" button
      echo '<form action="ajouter_panier.php" method="post">';
      echo '<input type="hidden" name="plat_id" value="' . $plat['id'] . '">';

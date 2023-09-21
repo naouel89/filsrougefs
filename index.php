@@ -20,6 +20,9 @@ if (isset($_SESSION["email"])) {
 include('header.php');
 include('navbar.php');
 include('connexion_script.php');
+require 'DAO.php';
+$platcontent = get_plats('localhost', 'dist', 'root', '1234');
+
   // Afficher l'utilisateur connecté
     echo '<p>Bienvenue, ' . $email . '</p>';
 ?>
@@ -43,15 +46,53 @@ include('connexion_script.php');
                 echo '</a>';
                 echo '</div>';
             }
+            //afficher
             
-    
-        ?>
-    </div>
 
-    <section class="banner">
-        <!-- Le reste de votre contenu HTML ici -->
-        <button class="btn btn-primary "><a href= "deconnexion.php">Déconnexion</a></button>
-    </section>
+// Récupérez les données de la base de données
+$plats = get_plats($host, $dbname, $username, $password);
+
+
+?>
+
+
+    <div class="container">
+        <h1>Liste des Plats les plus vendu :</h1>
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicateurs de carrousel -->
+            <ol class="carousel-indicators">
+                <?php for ($i = 0; $i < count($plats); $i++) : ?>
+                    <li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>"
+                    <?php if ($i === 0) echo 'class="active"'; ?>>
+                    </li>
+                <?php endfor; ?>
+            </ol>
+
+            <!-- Contenu du carrousel -->
+            <div class="carousel-inner">
+                <?php foreach ($plats as $key => $plat) : ?>
+                    <div class="carousel-item <?php if ($key === 0) echo 'active'; ?>">
+                        <img src="<?php echo $plat['image']; ?>" class="d-block w-100" alt="<?php echo $plat['libelle']; ?>">
+                        <div class="carousel-caption">
+                            <h3><?php echo $plat['libelle']; ?></h3>
+                            <p>Total Quantité: <?php echo $plat['total_quantite']; ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Contrôles du carrousel -->
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
     <?php
 include ('footer.php') ;
 

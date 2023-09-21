@@ -1,8 +1,45 @@
+/* Ajoutez les styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+}
 
+/* Styles pour le carrousel */
+.carousel-container {
+    overflow: hidden;
+    width: 80%;
+    margin: 20px 0;
+}
 
+.carousel {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
 
+.carousel-item {
+    flex: 0 0 auto;
+    width: 200px; /* Largeur de chaque élément du carrousel */
+    margin-right: 10px; /* Espacement entre les éléments */
+    scroll-snap-align: start;
+    border: 1px solid #009af9;
+    padding: 10px;
+    text-align: center;
+}
 
+/* Cache la barre de défilement horizontale */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
 
 
 
