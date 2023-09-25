@@ -13,6 +13,7 @@ include('navbar.php');
 if (isset($_SESSION["email"])) {
     // Récupérer l'email de l'utilisateur connecté
     $email = $_SESSION["email"];
+    
 
     // Afficher l'utilisateur connecté
     echo '<p>Bienvenue, ' . $email . '</p>';
@@ -49,7 +50,7 @@ if (isset($_SESSION["email"])) {
      echo '</form>';
 
      // Add "Plus de détails" button
-     echo '<a href="detail_plat.php?id=' . $plat['id'] . '">Plus de détails</a>';
+     echo '<a href="detail_plat.php?id=' . $platUI['id'] . '">Plus de détails</a>';
 
  }
                 echo '</div>';

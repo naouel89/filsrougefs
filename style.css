@@ -131,7 +131,14 @@ body {
     }
 }
 
-
+  /* Ajoutez ici vos styles personnalisés si nécessaire */
+  .centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 /* Styles pour le titre h1 */
 h1 {
