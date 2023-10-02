@@ -30,27 +30,30 @@ $platcontent = get_plats('localhost', 'dist', 'root', '1234');
     <div class="main-content">
         <?php
      
-
+//$query = "SELECT plat.*, categorie.nom AS nom_categorie FROM plat 
+// INNER JOIN categorie ON plat.id_categorie = categorie.id 
+// WHERE plat.id_categorie = ?";
        
-            // Requête pour obtenir les catégories
-            $query = "SELECT * FROM categorie";
-            $stmt = $conn->prepare($query);
-            $stmt->execute();
+// Requête pour obtenir les catégories avec des informations sur les plats de chaque catégorie
+$query = "SELECT categorie.id, categorie.libelle, categorie.image, COUNT(plat.id)
+          FROM categorie
+          LEFT JOIN plat ON categorie.id = plat.id_categorie
+          GROUP BY categorie.id, categorie.libelle, categorie.image";
+$stmt = $conn->prepare($query);
+$stmt->execute();
 
-            // Afficher les catégories avec des liens vers les plats de chaque catégorie
-            while ($categorie = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<div class="categorie-item">';
-                echo '<a href="plats_par_categorie.php?id=' . $categorie['id'] . '">';
-                echo '<img src="' . $categorie['image'] . '" alt="' . $categorie['libelle'] . '">';
-                echo '<h2>' . $categorie['libelle'] . '</h2>';
-                echo '</a>';
-                echo '</div>';
-            }
-            //afficher
-            
+// Afficher les catégories avec des liens vers les plats de chaque catégorie
+while ($categorie = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo '<div class="categorie-item">';
+    echo '<a href="plats_par_categorie.php?id=' . $categorie['id'] . '">';
+    echo '<img src="' . $categorie['image'] . '" alt="' . $categorie['libelle'] . '">';
+    echo '<h2>' . $categorie['libelle'] . '</h2>';
+    echo '<p>Nombre de plats: ' . $categorie['COUNT(plat.id)'] . '</p>';
+    echo '</a>';
+    echo '</div>';
+}
 
-// Récupérez les données de la base de données
-$plats = get_plats($host, $dbname, $username, $password);
+
 
 
 ?>

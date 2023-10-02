@@ -1,53 +1,65 @@
 <?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-// Vérifier si le email est stocké dans la variable de session
-if (isset($_SESSION["email"])) {
-    $email = $_SESSION["email"];
-} else {
-    // Rediriger vers la page de connexion si lemail  n'est pas défini
-    header("Location: connexion.php");
+ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    session_start();
+include('connexion_script.php');
+
+function getPlatDetailsById($idPlat, $conn) {
+    $sql = "SELECT * FROM plat WHERE id = :idPlat";
+    $requete = $conn->prepare($sql);
+    $requete->bindParam(':idPlat', $idPlat);
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_plat'])) {
+    $idPlat = $_POST['id_plat'];
+    $plat = getPlatDetailsById($idPlat, $conn);
+
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = array();
+    }
+
+    $_SESSION['panier'][] = array(
+        'id_plat' => $plat['id'],
+        'libelle' => $plat['libelle'],
+        'prix' => $plat['prix']
+    );
+
+    header("Location: panier.php");
     exit();
 }
 
-// Inclure les fichiers après les vérifications
 include('header.php');
-include('navbar.php');
-include('connexion_script.php');
-  // Afficher l'utilisateur connecté
-  echo '<p>Bienvenue, ' . $email . '</p>';
 
-// Vérifier si le panier est vide
-if (empty($_SESSION['panier'])) {
-    echo "Votre panier est vide.";
-} else {
-    // Afficher le contenu du panier
-    echo "<h1>Détail du Panier</h1>";
+if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
+    echo "<h1>Votre Panier</h1>";
 
-     
-    // Boucle à travers les éléments du panier
     $total = 0;
     foreach ($_SESSION['panier'] as $plat) {
-  
-        
-        echo $plat['libelle'];
-        echo "<p>Prix du plat : " . $plat['prix'] . " €</p>";
-         
+        echo "<p>" . $plat['libelle'] . " - Prix unitaire : " . $plat['prix'] . " €</p>";
         $total += $plat['prix'];
     }
-    
 
-    // Afficher le prix total
-    echo "<p><strong>Prix total : " . $total . " €</strong></p>";
+    echo "<p><strong>Total : " . $total . " €</strong></p>";
 
-    // Ajouter un bouton de paiement (c'est un exemple simple)
-    echo '<form action="process_payment.php" method="POST">';
+    echo '<form action="traitement_commande.php" method="post">';
+    echo '<label for="adresse_client">Adresse du Client:</label>';
+    echo '<input type="text" id="adresse_client" name="adresse_client" required><br><br>';
+    echo '<label for="nom_client">Nom du Client:</label>';
+    echo '<input type="text" id="nom_client" name="nom_client" required><br><br>';
+    echo '<label for="telephone_client">Téléphone du Client:</label>';
+    echo '<input type="text" id="telephone_client" name="telephone_client" required><br><br>';
     echo '<input type="hidden" name="total" value="' . $total . '">';
-    echo '<input type="submit" value="Payer">';
+    echo '<input type="submit" value="Valider la Commande">';
     echo '</form>';
+} else {
+    echo "Votre panier est vide.";
 }
-include ('footer.php');
+?>
+<script src="jquery-2.1.1.min.js"></script>
+<?php
+include('footer.php');
 ?>
