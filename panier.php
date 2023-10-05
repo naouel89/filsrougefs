@@ -62,4 +62,46 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
 <script src="jquery-2.1.1.min.js"></script>
 <?php
 include('footer.php');
+
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+// session_start();
+// var_dump($_SESSION['panier']); // Ajoutez cette ligne pour vérifier le contenu du panier
+// // Inclure le script de connexion à la base de données
+// include('connexion_script.php');
+// include('header.php');
+// require('DAO.php');
+
+// // Vérifier si le panier existe dans la session
+// if (!isset($_SESSION['panier']) || empty($_SESSION['panier'])) {
+//     echo "Votre panier est vide.";
+// } else {
+//     // Afficher les éléments du panier
+//     echo "<h2>Votre panier :</h2>";
+
+// echo "<ul>";
+// foreach ($_SESSION['panier'] as $id_plat => $quantite) {
+//     // Récupérer les détails du plat depuis la base de données
+//     $id_plat = 0; // La valeur de l'id que vous souhaitez récupérer
+//     $stmt = $db->prepare("SELECT * FROM plat WHERE id = :id_plat");
+//     $stmt->bindParam(':id_plat', $id_plat, PDO::PARAM_INT);
+//     $stmt->execute();
+//     $plat = $stmt->fetch(PDO::FETCH_ASSOC);
+//     // Afficher les détails du plat dans le panier
+// echo "<li>{$plat['nom']} - Quantité : $quantite</li>";
+// }
+// echo "</ul>";
+//     // Formulaire de commande
+//     echo "<h2>Passer la commande :</h2>";
+//     echo "<form method='post' action='traitement_commande.php'>";
+//     echo "Nom : <input type='text' name='nom_client' required><br>";
+//     echo "Téléphone : <input type='text' name='telephone_client' required><br>";
+//     echo "Email : <input type='email' name='email_client' required><br>";
+//     echo "Adresse : <input type='text' name='adresse_client' required><br>";
+//     echo "<input type='submit' value='Valider la commande'>";
+//     echo "</form>";
+// }
+
+// include('footer.php');
 ?>

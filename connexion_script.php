@@ -12,12 +12,21 @@
  
  
      try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-        // Gestion des erreurs PDO
+      $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+      // Gestion des erreurs PDO
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     } catch (PDOException $e) {
         echo "Erreur de connexion à la base de données : " . $e->getMessage();
     }
+    try {
+      $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (PDOException $e) {
+      // Gérer les erreurs de connexion à la base de données ici
+      echo "Erreur de connexion : " . $e->getMessage();
+      exit();
+  }
   
     ?>

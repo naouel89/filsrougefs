@@ -13,3 +13,7 @@
 
 </head>
 <body>
+
+    <?php
+    echo $_SESSION['error_message'];
+    ?>

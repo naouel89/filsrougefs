@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 session_start();
 include ('connexion_script.php');
 $titre = "Connexion";
-
+include ('header.php');
 // Vérifier si le formulaire de connexion a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $messageErreur = "Email ou mot de passe incorrect.";
         }
     }
-include ('header.php');
+
 ?>
 
 
