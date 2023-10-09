@@ -19,7 +19,7 @@ if (isset($_POST['plat_id'])) {
     // Effectuer une requête pour récupérer les détails du plat en fonction de $plat_id depuis votre base de données
     include('connexion_script.php');
     $query = "SELECT * FROM plat WHERE id = ?";
-    $stmt = $conn->prepare($query);
+    $stmt = $db->prepare($query);
     $stmt->execute([$plat_id]);
     $plat = $stmt->fetch(PDO::FETCH_ASSOC);
 
