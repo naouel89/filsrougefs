@@ -29,6 +29,13 @@
   <li><a href="#"><i class="fab fa-twitter"></i></a></li>
   <li><a href="#"><i class="fab fa-instagram"></i></a></li>
 </ul>
+<div class="col-md-4">
+        <h3>Liens Utiles</h3>
+        <ul>
+          <li><a href="mentions_legales.php">Mentions Légales</a></li>
+          <li><a href="politique_de_confidentialite.php">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
         </div>
       </div>
     </div>
