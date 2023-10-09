@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier si les mots de passe correspondent
     if ($password === $confirm_password) {
         // Préparation de la requête d'insertion
-        $stmt = $conn->prepare("INSERT INTO infouser (pseudo, email, mdp) VALUES (:pseudo, :email, :mdp)");
+        $stmt = $db->prepare("INSERT INTO infouser (pseudo, email, mdp) VALUES (:pseudo, :email, :mdp)");
 
         // Liaison des paramètres
         $stmt->bindParam(':pseudo', $pseudo);
