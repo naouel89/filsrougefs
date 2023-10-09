@@ -36,7 +36,7 @@
 
             // Requête pour obtenir les plats de la catégorie sélectionnée
             $query = "SELECT * FROM plat WHERE id_categorie = ?";
-            $stmt = $conn->prepare($query);
+            $stmt = $db->prepare($query);
             $stmt->execute([$id_categorie]);
 
             // Afficher les plats de la catégorie
