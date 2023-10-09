@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mdp = $_POST["mdp"];
 
          // Requête pour obtenir le mot de passe associé à l'email
-        $stmt = $conn->prepare("SELECT mdp FROM infouser WHERE email = :email");
+        $stmt = $db->prepare("SELECT mdp FROM infouser WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $row = $stmt->fetch();
