@@ -24,7 +24,6 @@
         <h1>Confirmation de Commande</h1>
         <p>Merci pour votre commande ! Votre commande a été enregistrée avec succès.</p>
         <p>Un e-mail de confirmation a été envoyé à votre adresse e-mail.</p>
-       
         <!-- Ajoutez ici d'autres détails de la commande si nécessaire -->
         <a href="index.php" class="btn btn-primary">Retourner à l'accueil</a>
     </div>
@@ -59,9 +58,9 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 // Récupérer les données du formulaire
-$email = $_POST['email'];
-$telephone = $_POST['telephone'];
-$adresse = $_POST['adresse'];
+$email = $_POST['email_client'];
+$telephone = $_POST['telephone_client'];
+$adresse = $_POST['adresse_client'];
 $articles = json_encode($_SESSION['panier']); // Convertir le panier en JSON
 $montant_total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
 
@@ -87,16 +86,14 @@ try {
 
     // Sujet et corps de l'e-mail
     $mail->Subject = 'Confirmation de commande';
-    $mail->Body = 'Cher ' . $email . ',<br><br>';
+    $mail->Body = 'Cher client,<br><br>';
     $mail->Body .= 'Votre commande a été enregistrée avec succès. Merci de votre achat !<br><br>';
     foreach ($_SESSION['panier'] as $plat_id => $quantite) {
-        $plat = getPlatDetailsById($db, $plat_id);
+        $plat = getPlatDetailsById($plat_id, $db);
 
         if ($plat) {
             $mail->Body .= 'Nom de l\'article : ' . $plat['libelle'] . '<br>';
-            $mail->Body .= 'Quantité : ' . $quantite . '<br>';
             $mail->Body .= 'Prix unitaire : $' . $plat['prix'] . '<br>';
-            $mail->Body .= 'Sous-total : $' . ($quantite * $plat['prix']) . '<br><br>';
         }
     }
     $mail->Body .= 'Montant total de la commande : $' . $montant_total . '<br><br>';
