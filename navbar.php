@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=dist", "root", "1234");
+    $pdo = new PDO("mysql:host=localhost;dbname=jessus", "jessus", "1234");
     // Set PDO to throw exceptions on errors
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
