@@ -6,9 +6,9 @@ ini_set('display_errors', 1);
 
 // Inclure le fichier de connexion à la base de données
 $servername = "localhost";
-$username = "locquet";
-$password = "momo3006";
-$dbname = "locquet";
+$username = "jessus";
+$password = "1234";
+$dbname = "jessus";
 
 try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
@@ -16,7 +16,7 @@ try {
 } catch (PDOException $e) {
     die("La connexion à la base de données a échoué : " . $e->getMessage());
 }
-require_once 'Panier.php';
+require_once 'panier.php';
 
 // Inclure la bibliothèque PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
