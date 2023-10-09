@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_plat'])) {
     $_SESSION['panier'][] = array(
         'id_plat' => $plat['id'],
         'libelle' => $plat['libelle'],
+        'quantite' => $plat['quantite'],
         'prix' => $plat['prix']
     );
 
@@ -42,7 +43,7 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
         echo "<p>" . $plat['libelle'] . " - Prix unitaire : " . $plat['prix'] . " €</p>";
         $total += $plat['prix'];
     }
-
+    echo "<p>quantite :" . $quantite . "</p>";
     echo "<p><strong>Total : " . $total . " €</strong></p>";
 
     echo '<form action="traitement_commande.php" method="post">';

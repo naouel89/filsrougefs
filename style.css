@@ -127,7 +127,7 @@ body {
     }
 }
 
-  /* Ajoutez ici vos styles personnalisés si nécessaire */
+  
   .centered-content {
     display: flex;
     flex-direction: column;
@@ -249,7 +249,7 @@ h1 {
     justify-content: space-between;
 }
 
-/* Style de la vidéo en arrière-plan */
+
 /* Style de la vidéo en arrière-plan */
 .video-container {
     position: relative;
@@ -358,64 +358,100 @@ footer .social-media-icons a {
     box-sizing: border-box;
 }
 
-/* Style de base pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-/* Style de l'en-tête */
-header {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
 
-/* Style de la barre de navigation */
 .navbar {
     background-color: #444;
     padding: 10px 0;
-}
-
-/* Style pour le contenu principal */
-.main-content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Style pour le titre de la catégorie */
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
     text-align: center;
 }
 
-/* Style pour les plats */
-.plat-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
 }
 
-.plat-item img {
-    max-width: 100%;
-    height: auto;
-}
 
-/* Style pour les boutons */
-button {
-    padding: 10px 20px;
+
+.button {
     background-color: #333;
     color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Style pour les liens */
-a {
+.button:hover {
+    background-color: #f50000;
+}
+
+.link {
     color: #333;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles pour la section de plats par catégorie */
+.category-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

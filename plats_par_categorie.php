@@ -25,45 +25,41 @@
     ?>
     <body>
         
-    <h1>Plats</h1>
+    <h1 class="text-center mt-5">Plats</h1>
 
-        <div class="main-content">
-            <?php
-            // Récupérez l'ID de la catégorie depuis l'URL
-            if (isset($_GET['id'])) {
-                $id_categorie = $_GET['id'];
+<div class="container mt-5">
+    <div class="row">
+        <?php
+        // Récupérez l'ID de la catégorie depuis l'URL
+        if (isset($_GET['id'])) {
+            $id_categorie = $_GET['id'];
 
-                // Requête pour obtenir les plats de la catégorie sélectionnée
-                $query = "SELECT * FROM plat WHERE id_categorie = ?";
-                $stmt = $conn->prepare($query);
-                $stmt->execute([$id_categorie]);
+            // Requête pour obtenir les plats de la catégorie sélectionnée
+            $query = "SELECT * FROM plat WHERE id_categorie = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->execute([$id_categorie]);
 
-                // Afficher les plats de la catégorie
-                while ($plat = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<img src="' . $plat['image'] . '" alt="' . $plat['libelle'] . '">';
-                    echo '<div class="plat-item">';
-                    echo '<h2>' . $plat['libelle'] . '</h2>';
-                    echo '<p>Prix : ' . $plat['prix'] . ' €</p>';
-                    
-        // Add "Ajouter au panier" button
-        echo '<form action="ajouter_panier.php" method="post">';
-        echo '<input type="hidden" name="plat_id" value="' . $plat['id'] . '">';
-        echo '<input type="submit" name="add_to_cart" value="Ajouter au panier">';
-        echo '</form>';
-
-        // Add "Plus de détails" button
-        echo '<a href="detail_plat.php?id=' . $plat['id'] . '">Plus de détails</a>';
-
-    }
-                    echo '</div>';
-                }
-            else {
-                echo "ID de catégorie non spécifié dans l'URL.";
+            // Afficher les plats de la catégorie
+            while ($plat = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<div class="col-md-4 mb-4">';
+                echo '<div class="card">';
+                echo '<img src="' . $plat['image'] . '" class="card-img-top" alt="' . $plat['libelle'] . '">';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . $plat['libelle'] . '</h5>';
+                echo '<p class="card-text">Prix : ' . $plat['prix'] . ' €</p>';
+                echo '<form action="ajouter_panier.php" method="post">';
+                echo '<input type="hidden" name="plat_id" value="' . $plat['id'] . '">';
+                echo '<button type="submit" name="add_to_cart" class="btn btn-primary">Ajouter au panier</button>';
+                echo '</form>';
+                echo '<a href="detail_plat.php?id=' . $plat['id'] . '" class="btn btn-secondary mt-2">Plus de détails</a>';
+                echo '</div></div></div>';
             }
-
-            
-            ?>
-        </div>
+        } else {
+            echo '<div class="col text-center"><p class="alert alert-danger">ID de catégorie non spécifié dans l\'URL.</p></div>';
+        }
+        ?>
+    </div>
+</div>
 
         <section class="banner">
             <!-- Le reste de votre contenu HTML ici -->
