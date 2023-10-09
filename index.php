@@ -21,7 +21,7 @@ include('header.php');
 include('navbar.php');
 include('connexion_script.php');
 require 'DAO.php';
-$platcontent = get_plats('localhost', 'dist', 'root', '1234');
+$platcontent = get_plats('localhost', 'jessus', 'jessus', '1234');
 
   // Afficher l'utilisateur connecté
     echo '<p>Bienvenue, ' . $email . '</p>';
@@ -39,7 +39,7 @@ $query = "SELECT categorie.id, categorie.libelle, categorie.image, COUNT(plat.id
           FROM categorie
           LEFT JOIN plat ON categorie.id = plat.id_categorie
           GROUP BY categorie.id, categorie.libelle, categorie.image";
-$stmt = $conn->prepare($query);
+$stmt = $db->prepare($query);
 $stmt->execute();
 
 // Afficher les catégories avec des liens vers les plats de chaque catégorie
