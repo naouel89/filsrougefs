@@ -6,9 +6,9 @@ ini_set('display_errors', 1);
     session_start();
 include('connexion_script.php');
 
-function getPlatDetailsById($idPlat, $conn) {
+function getPlatDetailsById($idPlat, $db) {
     $sql = "SELECT * FROM plat WHERE id = :idPlat";
-    $requete = $conn->prepare($sql);
+    $requete = $db->prepare($sql);
     $requete->bindParam(':idPlat', $idPlat);
     $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
