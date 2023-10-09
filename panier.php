@@ -53,7 +53,7 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
     echo '<input type="text" id="nom_client" name="nom_client" required><br><br>';
     echo '<label for="telephone_client">Téléphone du Client:</label>';
     echo '<input type="text" id="telephone_client" name="telephone_client" required><br><br>';
-    echo '<input for="email_client">email</label>';
+    echo '<label for="email_client">email</label>';
     echo '<input type="text" id="email_client" name="email_client" required><br><br>';
     echo '<input type="hidden" name="total" value="' . $total . '">';
     echo '<input type="submit" value="Valider la Commande">';
