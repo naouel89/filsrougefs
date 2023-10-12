@@ -96,7 +96,7 @@ try {
             $mail->Body .= 'Prix unitaire : $' . $plat['prix'] . '<br>';
         }
     }
-    $mail->Body .= 'Montant total de la commande : $' . $montant_total . '<br><br>';
+    $mail->Body .= 'Montant total de la commande : €' . $total . '<br><br>';
     $mail->Body .= 'Cordialement,<br>natha';
 
     // Envoyer l'e-mail

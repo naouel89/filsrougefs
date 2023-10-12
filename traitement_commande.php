@@ -33,7 +33,7 @@ function insertDataCommande($db, $id_plat, $quantite, $nom_client, $telephone_cl
 VALUES (:id_plat, :quantite, 10, NOW(), 'En attente', :nom_client, :telephone_client, :email_client, :adresse_client)");
         
         $stmt->bindParam(':id_plat', $id_plat, PDO::PARAM_INT);
-        // $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+        $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
         $stmt->bindParam(':nom_client', $nom_client, PDO::PARAM_STR);
         $stmt->bindParam(':telephone_client', $telephone_client, PDO::PARAM_STR);
         $stmt->bindParam(':email_client', $email_client, PDO::PARAM_STR);
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adresse_client = htmlspecialchars($_POST['adresse_client']);
 
     // Appelez la fonction insertDataCommande avec les données validées et la connexion à la base de données
-    insertDataCommande($db, $id_plat, $quantite, $nom_client, $telephone_client, $email_client, $adresse_client);
+    insertDataCommande($db, $id_plat, $quantite, $nom_client, $telephoe_client, $email_client, $adresse_client);
 }
 
 
@@ -98,12 +98,12 @@ try {
 
         if ($plat) {
             $mail->Body .= 'Nom de l\'article : ' . $plat['libelle'] . '<br>';
-            // $mail->Body .= 'Quantité : ' . $quantite . '<br>';
+            $mail->Body .= 'Quantité : ' . $quantite . '<br>';
             $mail->Body .= 'Prix unitaire : $' . $plat['prix'] . '<br>';
             $mail->Body .= 'Sous-total : $' . ($quantite * $plat['prix']) . '<br><br>';
         }
     }
-    $mail->Body .= 'Montant total de la commande : $' . $montant_total . '<br><br>';
+    $mail->Body .= 'Montant total de la commande : $' . $total . '<br><br>';
     $mail->Body .= 'Cordialement,<br>Enzo';
 
     // Envoyer l'e-mail
