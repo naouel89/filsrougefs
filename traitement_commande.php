@@ -5,7 +5,9 @@ error_reporting(E_ALL);
 session_start();
 
 
-include('connexion_script.php');
+require_once('connexion_script.php');
+
+
 
 function insertDataCommande($db, $id_plat, $quantite, $nom_client, $tel_client, $email_client, $adresse_client)
 {
