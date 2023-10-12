@@ -26,16 +26,16 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-function insertDataCommande($db, $id_plat, $quantite, $nom_client, $tel_client, $email_client, $adresse_client)
+function insertDataCommande($db, $id_plat, $quantite, $nom_client, $telephone_client, $email_client, $adresse_client)
 {
     try {
         $stmt = $db->prepare("INSERT INTO commande (id_plat, quantite, total, date_commande, etat, nom_client, telephone_client, email_client, adresse_client) 
 VALUES (:id_plat, :quantite, 10, NOW(), 'En attente', :nom_client, :telephone_client, :email_client, :adresse_client)");
         
         $stmt->bindParam(':id_plat', $id_plat, PDO::PARAM_INT);
-        $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+        // $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
         $stmt->bindParam(':nom_client', $nom_client, PDO::PARAM_STR);
-        $stmt->bindParam(':telephone_client', $tel_client, PDO::PARAM_STR);
+        $stmt->bindParam(':telephone_client', $telephone_client, PDO::PARAM_STR);
         $stmt->bindParam(':email_client', $email_client, PDO::PARAM_STR);
         $stmt->bindParam(':adresse_client', $adresse_client, PDO::PARAM_STR);
 
@@ -59,12 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $id_plat = intval($_POST['id_plat']);
     $quantite = intval($_POST['quantite']);
     $nom_client = htmlspecialchars($_POST['nom_client']);
-    $tel_client = htmlspecialchars($_POST['telephone_client']);
+    $telephone_client = htmlspecialchars($_POST['telephone_client']);
     $email_client = htmlspecialchars($_POST['email_client']);
     $adresse_client = htmlspecialchars($_POST['adresse_client']);
 
     // Appelez la fonction insertDataCommande avec les données validées et la connexion à la base de données
-    insertDataCommande($db, $id_plat, $quantite, $nom_client, $tel_client, $email_client, $adresse_client);
+    insertDataCommande($db, $id_plat, $quantite, $nom_client, $telephone_client, $email_client, $adresse_client);
 }
 
 
@@ -98,7 +98,7 @@ try {
 
         if ($plat) {
             $mail->Body .= 'Nom de l\'article : ' . $plat['libelle'] . '<br>';
-            $mail->Body .= 'Quantité : ' . $quantite . '<br>';
+            // $mail->Body .= 'Quantité : ' . $quantite . '<br>';
             $mail->Body .= 'Prix unitaire : $' . $plat['prix'] . '<br>';
             $mail->Body .= 'Sous-total : $' . ($quantite * $plat['prix']) . '<br><br>';
         }
