@@ -40,8 +40,7 @@ VALUES (:id_plat, :quantite, 10, NOW(), 'En attente', :nom_client, :telephone_cl
         $stmt->bindParam(':adresse_client', $adresse_client, PDO::PARAM_STR);
 
         $stmt->execute();
-        $_SESSION['panier'] = []; // Réinitialisez le panier après la commande réussie
-        header("Location: confirmation_commande.php"); // Redirigez l'utilisateur vers la page de confirmation de commande
+      
         exit();
     } catch (PDOException $e) {
         // Enregistrez l'erreur dans un fichier de journal ou faites tout autre traitement nécessaire
@@ -56,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var_dump($_SESSION);
     // Validez et nettoyez les données du formulaire avant de les utiliser
     $id_plat = intval($_SESSION['panier'][0]['id']);
-    // $id_plat = intval($_POST['id_plat']);
+    $id_plat = intval($_POST['id_plat']);
     $quantite = intval($_POST['quantite']);
     $nom_client = htmlspecialchars($_POST['nom_client']);
     $telephone_client = htmlspecialchars($_POST['telephone_client']);
