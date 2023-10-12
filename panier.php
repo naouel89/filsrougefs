@@ -16,7 +16,7 @@ function getPlatDetailsById($idPlat, $db) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_plat'])) {
     $idPlat = $_POST['id_plat'];
-    $plat = getPlatDetailsById($idPlat, $conn);
+    $plat = getPlatDetailsById($idPlat, $db);
 
     if (!isset($_SESSION['panier'])) {
         $_SESSION['panier'] = array();

@@ -5,7 +5,7 @@ if (isset($_GET['searchTerm']) && isset($_GET['searchType'])) {
 
     try {
         // Connexion à la base de données MariaDB
-        $pdo = new PDO("mysql:host=localhost;dbname=dist", "root", "1234"); // Remplacez "" par votre mot de passe si nécessaire
+        $pdo = new PDO("mysql:host=localhost;dbname=jessus", "jessus", "1234"); // Remplacez "" par votre mot de passe si nécessaire
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         if ($searchType === 'plats') {
