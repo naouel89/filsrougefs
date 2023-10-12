@@ -6,6 +6,10 @@ session_start();
 
 
 include('connexion_script.php');
+$host = "localhost"; // Remplacez par le nom d'hôte de votre base de données
+$username = "jessus"; // Remplacez par votre nom d'utilisateur
+$password = "1234"; // Remplacez par votre mot de passe
+$dbname = "jessus"; // Remplacez par le nom de votre base de données
 
 try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
