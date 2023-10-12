@@ -12,7 +12,7 @@ $password = "1234"; // Remplacez par votre mot de passe
 $dbname = "jessus"; // Remplacez par le nom de votre base de données
 
 try {
-    $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+    $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("La connexion à la base de données a échoué : " . $e->getMessage());
