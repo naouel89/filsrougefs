@@ -518,14 +518,7 @@ body {
 }
 
 /* Style pour la bannière */
-.banner {
-    background-image: url('chemin/vers/votre/image.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    text-align: center;
-    padding: 100px 0;
-}
+
 
 /* Style pour le bouton de retour */
 #retourButton {
