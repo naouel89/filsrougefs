@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
     error_reporting(E_ALL);
     session_start();
 include('connexion_script.php');
+include('header.php');
 
 function getPlatDetailsById($idPlat, $db) {
     $sql = "SELECT * FROM plat WHERE id = :idPlat";
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_plat'])) {
     exit();
 }
 
-include('header.php');
+
 
 if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
     echo "<h1>Votre Panier</h1>";
@@ -61,6 +62,12 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
 } else {
     echo "Votre panier est vide.";
 }
+
+
+
+
+
+
 ?>
 <script src="jquery-2.1.1.min.js"></script>
 <?php
